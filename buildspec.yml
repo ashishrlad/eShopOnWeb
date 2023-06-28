@@ -3,11 +3,11 @@ phases:
   install:
     commands:
       - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS
-	  - chmod +x /install
-	  - install auto
-	  - service eShopOnWeb status
+	  
   build:
     commands:
+      - chmod +x /install
+      - install auto      
       - dotnet restore eShopOnWeb/eShopOnWeb.sln
       - dotnet build  eShopOnWeb/eShopOnWeb.sln
 artifacts:
