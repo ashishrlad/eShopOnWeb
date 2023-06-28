@@ -1,16 +1,13 @@
-version: 0.2
+version: 0.2    
 phases:
-  pre_build:
+  install:
     commands:
-      - echo Restore started on `date`
-      
+      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
   build:
     commands:
-      - echo Build started on `date`      
-      - dotnet publish -c release -o ./build_output eShopOnWeb.sln
+      - dotnet restore eShopOnWeb/eShopOnWeb.sln
+      - dotnet build  eShopOnWeb/eShopOnWeb.sln
 artifacts:
   files:
     - build_output/**/*
     - scripts/**/*
-    - appspec.yml
-    
