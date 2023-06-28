@@ -1,14 +1,17 @@
-version: 0.2    
+version: 0.2
+
+env:
+  variables:
+    SOLUTION: .\eShopOnWeb.sln
+    PACKAGE_DIRECTORY: .\packages
+    DOTNET_FRAMEWORK: 4.8
+
 phases:
-  install:
-    commands:
-      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS	  
   build:
-    commands: 
-      - dotnet restore eShopOnWeb/eShopOnWeb.sln
-      - dotnet build  eShopOnWeb/eShopOnWeb.sln
+    commands:
+      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
+      - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
 artifacts:
   files:
-    - /**/*
-    - /**/*
+    - .\eShopOnWeb\bin\Debug\*
     
