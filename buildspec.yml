@@ -1,17 +1,20 @@
 version: 0.2
+
+env:
+  variables:
+    SOLUTION: .\eShopOnWeb.sln
+    PACKAGE_DIRECTORY: .\packages
+    DOTNET_FRAMEWORK: 4.8
+
 phases:
   install:
     runtime-versions:
       dotnet: 5.0
-  pre_build:
-    commands:
-      - echo Restore started on `date`
-      - dotnet restore /eShopOnWeb/src/BlazorShared/BlazorShared.csproj
   build:
     commands:
-      - echo Build started on `date`  
-      - dotnet publish -c release -o ./eShopOnWeb/src/BlazorShared/BlazorShared.csproj
+	  - dotnet add package Microsoft.EntityFrameworkCore
+      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
+      - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
 artifacts:
   files:
-    - /**/*
-    - /**/*
+    - .\eShopOnWeb\*
