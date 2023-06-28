@@ -3,12 +3,13 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet build
+      
   build:
     commands:
-      - echo Build started on `date`     
+      - echo Build started on `date`
+      - dotnet build
       - dotnet run
-      - dotnet publish -c release -o ./build_output BlazorApp.csproj
+      - dotnet publish -c release -o ./build_output 
 artifacts:
   files:
     - build_output/**/*
