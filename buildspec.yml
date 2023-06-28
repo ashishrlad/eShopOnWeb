@@ -9,9 +9,7 @@ phases:
       - dotnet restore /eShopOnWeb/src/BlazorShared/BlazorShared.csproj
   build:
     commands:
-      - echo Build started on `date`
-      - dotnet build
-      - dotnet run
+      - echo Build started on `date`  
       - dotnet publish -c release -o ./eShopOnWeb/src/BlazorShared/BlazorShared.csproj
 artifacts:
   files:
