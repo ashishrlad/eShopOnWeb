@@ -9,7 +9,7 @@ phases:
       - echo Build started on `date`
       - dotnet build
       - dotnet run
-      - dotnet publish -c release -o ./build_output 
+      - dotnet publish -c release -o ./build_output eShopOnWeb.sln
 artifacts:
   files:
     - build_output/**/*
