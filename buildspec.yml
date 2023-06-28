@@ -9,6 +9,6 @@ phases:
       - dotnet build  eShopOnWeb/eShopOnWeb.sln
 artifacts:
   files:
-    - build_output/**/*
-    - scripts/**/*
+    - /**/*
+    - /**/*
     
