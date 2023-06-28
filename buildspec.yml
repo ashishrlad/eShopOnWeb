@@ -2,7 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
+      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS
+	  - chmod +x /install
+	  - sudo install auto
+	  - sudo service eShopOnWeb status
   build:
     commands:
       - dotnet restore eShopOnWeb/eShopOnWeb.sln
@@ -11,3 +14,4 @@ artifacts:
   files:
     - build_output/**/*
     - scripts/**/*
+    
