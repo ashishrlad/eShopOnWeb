@@ -13,4 +13,6 @@ phases:
       - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
 artifacts:
   files:
-    - .\eShopOnWeb\bin\Debug\*
+    - '**/*'
+  base-directory: ./build_output
+  discard-paths: no
