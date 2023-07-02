@@ -18,5 +18,4 @@ jobs:
       run: dotnet build ./eShopOnWeb.sln --configuration Release
 
     - uses: microsoft/RichCodeNavIndexer@v0.1
-      with:
-        repo-token: ${{ github.token }}
+    
