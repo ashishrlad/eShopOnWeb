@@ -6,5 +6,7 @@ phases:
       - curl  https://dotnet.microsoft.com/en-us/download/dotnet/7.0/.MSbuild.sh | bash /dev/stdin --channel STS 
   build:
     commands:
+      - sudo apt-get update &&
+	    - sudo apt-get install -y dotnet-runtime-7.0
       - dotnet restore eShopOnWeb/eShopOnWeb.sln
       - dotnet build eShopOnWeb/eShopOnWeb.sln
