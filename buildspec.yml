@@ -3,9 +3,8 @@ phases:
   install:
     commands:
       - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
+      - curl -sSL https://dotnet.microsoft.com/en-us/download/dotnet/7.0/./MSbuild.sh | bash /dev/stdin --channel STS 
   build:
     commands:
-      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
-      - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
-      - dotnet restore Net7eShopOnWeb/Net7eShopOnWeb.sln
-      - dotnet build  Net7eShopOnWeb/Net7eShopOnWeb.sln
+      - dotnet restore eShopOnWeb/eShopOnWeb.sln
+      - dotnet build eShopOnWeb/eShopOnWeb.sln
