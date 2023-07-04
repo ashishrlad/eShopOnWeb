@@ -5,5 +5,5 @@ phases:
       - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
   build:
     commands:
-      - dotnet restore Net7TestApp/Net7TestApp.sln
-      - dotnet build Net7TestApp/Net7TestApp.sln
+      - dotnet restore eShopOnWeb/eShopOnWeb.sln
+      - dotnet build  eShopOnWeb/eShopOnWeb.sln
