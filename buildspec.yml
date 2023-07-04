@@ -3,7 +3,7 @@ phases:
   install:
     commands:
       - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
-      - curl -sSL https://dotnet.microsoft.com/en-us/download/dotnet/7.0/./MSbuild.sh | bash /dev/stdin --channel STS 
+      - curl -sSL https://dotnet.microsoft.com/en-us/download/dotnet/7.0/MSbuild.sh | bash /dev/stdin --channel STS 
   build:
     commands:
       - dotnet restore eShopOnWeb/eShopOnWeb.sln
