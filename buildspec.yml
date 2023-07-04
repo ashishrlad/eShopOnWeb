@@ -1,17 +1,18 @@
-version: 0.2    
+version: 0.2
 phases:
-  pre_build:
-    commands:
-       - dotnet restore BlazorApp.csproj
   install:
-    commands:
-      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
-      - dotnet restore BlazorApp.csproj
+    runtime-versions:
+      dotnet: 7.0
   build:
     commands:
-      - sudo apt-get update
-      - sudo apt-get install -y dotnet-runtime-7.0
-      - dotnet restore eShopOnWeb/eShopOnWeb.sln
-      - dotnet build eShopOnWeb/eShopOnWeb.sln
-      - dotnet publish -c release -o ./build_output BlazorApp.csproj
+      - echo "CD into source folder, because my source code is tidy"
+      - cd src
+      - echo "Restore, Build, then Publish.."
+      - dotnet restore
+      - dotnet build --no-restore
+      - dotnet publish --no-restore --output eShopOnWeb/eShopOnWeb.sln
+artifacts:
+  base-directory: eShopOnWeb/eShopOnWeb.sln
+  files:
+    - '*/'
       
