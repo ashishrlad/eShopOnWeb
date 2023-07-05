@@ -1,9 +1,16 @@
-version: 0.2    
 phases:
   install:
     commands:
-      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
+     - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
+     - apt-get update
+     - apt-get install -y apt-transport-https
+     - apt-get install -y dotnet-sdk-6.0
+     - apt-get update 
+     - apt-get install -y aspnetcore-runtime-6.0
+     - apt-get install -y dotnet-runtime-6.0
   build:
     commands:
-      - dotnet restore eShopOnWeb/eShopOnWeb.sln
-      - dotnet build eShopOnWeb/eShopOnWeb.sln
+     - dotnet publish -p:PublishProfile=eShopOnWeb
+artifacts:
+  files:
+    - '**/*'
