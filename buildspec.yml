@@ -10,7 +10,7 @@ phases:
      - apt-get install -y dotnet-runtime-6.0
   build:
     commands:
-     - dotnet publish -p:PublishProfile=eShopOnWeb
+     - dotnet publish -p:PublishProfile=eShopOnWeb.sln
 artifacts:
   files:
     - '**/*'
