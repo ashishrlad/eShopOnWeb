@@ -11,6 +11,7 @@ phases:
      - apt-get install -y dotnet-runtime-6.0
   build:
     commands:
+     - pwd
      - dotnet publish -p:PublishProfile=eShopOnWeb.sln
 artifacts:
   files:
